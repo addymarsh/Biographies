@@ -1,0 +1,15 @@
+@media screen and (max-width: 394px) {
+
+body {
+    background-color: #f2d0bf;
+}
+.head {
+    font-size: 64px;
+    justify-content: center;
+    align-items: center;
+    width: 394px;
+    height: 80px;
+    text-align: center;
+    font-family: "Patrick Hand", cursive;
+}
+}
