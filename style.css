@@ -14,18 +14,21 @@ body {
 }
 
 .add {
-        font-size: 64px;
+        font-size: 100px;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
+    width: 160px;
+    height: 160px;
     text-align: center;
+    text-justify: center;
     font-family: "Patrick Hand", cursive;
      background-color: #f2d0bf;
     border: 5px solid black;
     border-radius: 20px 20px 20px 20px;
     position: relative;
     text-decoration: none;
+    top: 20px;
+    left: 3px;
 }
 
 }

@@ -79,8 +79,26 @@ textarea[name="notes"] {
     position: relative;
     height: 383px;
     align-content: center;
-
 }
 
+.details {
+    position: relative;
+    padding-top: 24px;
+}
+
+.age {
+    position: relative;
+    top: 4px;
+}
+
+.height {
+    position: relative;
+    top: 4px;
+}
+
+.up {
+    position: relative;
+    bottom: 70px;
+}
 
 }
