@@ -34,11 +34,15 @@
   }
 
   function renderCharaPreview() {
+    var chara = document.querySelector(".chara");
     var stack = document.querySelector(".chara .face-stack--thumb");
     var hint = document.querySelector(".chara-hint");
     if (!buddy || !stack) return;
     FA.applyState(stack, buddy.face, false);
     var showFace = FA.hasAnyFace(buddy.face);
+    if (chara) {
+      chara.classList.toggle("chara--has-face", showFace);
+    }
     if (hint) {
       hint.style.display = showFace ? "none" : "";
     }

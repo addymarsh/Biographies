@@ -122,6 +122,7 @@ textarea[name="notes"] {
     text-decoration: none;
     color: gray;
     line-height: 0.9;
+    text-align: center;
 }
 
 .chara-inner:visited,
@@ -131,17 +132,24 @@ textarea[name="notes"] {
     color: gray;
 }
 
+/* Placeholder only: face area collapses so “What do they look like?” stays vertically centered */
 .chara-face {
     position: relative;
-    flex: 1;
+    flex: 0 0 auto;
     width: 100%;
+    min-height: 0;
+}
+
+/* After customize: face preview fills the card */
+.chara--has-face .chara-face {
+    flex: 1 1 auto;
     min-height: 240px;
 }
 
 .chara-hint {
     font-size: 60px;
     text-align: center;
-    margin-top: 8px;
+    margin-top: 0;
 }
 
 .details {
@@ -149,6 +157,7 @@ textarea[name="notes"] {
     padding-top: 24px;
     align-items: center;
     justify-content: center;
+    
 }
 
 .age {
