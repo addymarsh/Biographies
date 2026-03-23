@@ -1,24 +1,38 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biographies</title>
     <link href="new.css" rel="stylesheet">
+    <link href="face-layers.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Rubik+Bubbles&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="head"> 
-        <a href="index.html" class="no-underline">back</a>
+    <div class="head">
+        <a href="index.html" class="back">back</a>
+        <button type="button" class="save">save</button>
     </div>
 
     <div class="details">
         <div class="name">
             <textarea name="name" placeholder="Name"></textarea>
         </div>
-        <div class="chara">What do they look like?</div>
+        <div class="chara">
+            <a class="chara-inner chara-customize-link" href="customize.html">
+                <div class="chara-face">
+                    <div class="face-stack face-stack--thumb">
+                        <img data-part="cheeks" alt="" hidden>
+                        <img data-part="eyes" alt="" hidden>
+                        <img data-part="nose" alt="" hidden>
+                        <img data-part="mouth" alt="" hidden>
+                    </div>
+                </div>
+                <span class="chara-hint">What do they <br>look like?</span>
+            </a>
+        </div>
         <div class="age">
             <textarea name="age" placeholder="Age"></textarea>
         </div>
@@ -80,7 +94,8 @@
         </div>
     </div>
 
-
-
+    <script src="face-assets.js"></script>
+    <script src="buddies-storage.js"></script>
+    <script src="new-buddy.js"></script>
 </body>
 </html>

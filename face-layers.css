@@ -1,0 +1,84 @@
+/*
+ * Single source for face part positions. Pixel nudges match the customize canvas height (383px).
+ * Index tiles use a smaller box — --face-nudge-mult scales nudges so the composition matches.
+ * If you change .buddy-thumb height in style.css, update --face-nudge-mult (160/383) on .buddy-thumb .face-stack--thumb.
+ */
+@media screen and (max-width: 394px) {
+
+    /* 160 (buddy-thumb height) / 383 (.chara canvas height) */
+    .buddy-thumb .face-stack--thumb {
+        --face-nudge-mult: 0.41827;
+    }
+
+    .chara .face-stack {
+        --face-nudge-mult: 1;
+    }
+
+    .face-stack {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .chara .face-stack .face-part,
+    .chara .face-stack img[data-part],
+    .buddy-thumb .face-stack--thumb img[data-part] {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        pointer-events: none;
+    }
+
+    #part-cheeks.face-part,
+    #part-eyes.face-part,
+    #part-nose.face-part,
+    #part-mouth.face-part,
+    .face-stack img[data-part] {
+        transform: translate(
+                calc(-50% + calc(var(--face-x, 0px) * var(--face-nudge-mult, 1))),
+                calc(-50% + calc(var(--face-y, 0px) * var(--face-nudge-mult, 1)))
+            )
+            scale(var(--face-scale-x, var(--face-scale, 1)), var(--face-scale-y, var(--face-scale, 1)));
+        transform-origin: center center;
+    }
+
+    #part-cheeks.face-part,
+    .face-stack img[data-part="cheeks"] {
+        z-index: 1;
+        --face-x: 0px;
+        --face-y: 30px;
+        --face-scale: 0.86;
+    }
+
+    #part-eyes.face-part,
+    .face-stack img[data-part="eyes"] {
+        z-index: 2;
+        --face-x: 0px;
+        --face-y: -66px;
+        --face-scale: 1;
+    }
+
+    #part-nose.face-part,
+    .face-stack img[data-part="nose"] {
+        z-index: 3;
+        --face-x: 0px;
+        --face-y: 0px;
+        --face-scale: 0.2;
+    }
+
+    #part-mouth.face-part,
+    .face-stack img[data-part="mouth"] {
+        z-index: 4;
+        --face-x: 0px;
+        --face-y: 90px;
+        --face-scale: 0.7;
+    }
+}

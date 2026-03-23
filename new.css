@@ -2,14 +2,29 @@
 
 body {
     background-color: #f2d0bf;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
+
 .head {
-    font-size: 20px;
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    font-size: 20px;
     font-family: "Patrick Hand", cursive;
-    position: relative;
     width: 72px;
     height: 32px;
     border: 2px solid black;
@@ -17,10 +32,22 @@ body {
     padding-top: 2px;
     color: black;
     text-decoration: none;
+    text-align: center;
 }
 
-.no-underline {
-    text-decoration: none;
+.save {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    background-color: #f2d0bf;
+    font-size: 20px;
+    font-family: "Patrick Hand", cursive;
+    width: 72px;
+    height: 32px;
+    border: 2px solid black;
+    border-radius: 10px 10px 10px 10px;
+    padding-top: 2px;
+    color: black;
+    text-align: center;
 }
 
 textarea {
@@ -33,6 +60,10 @@ textarea {
     border: 5px solid black;
     border-radius: 20px 20px 20px 20px;
     position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 96%;
+
     
     
     
@@ -43,13 +74,13 @@ textarea[name="description"] {
 }
 
 textarea[name="age"] {
-    width: 170px;
+    width: 155px;
 }
 
 textarea[name="height"] {
-    width: 170px;
+    width: 155px;
     top: -74px;
-    left: 192px;
+    left: 175px;
 }
 
 textarea[name="hobbies"] {
@@ -69,21 +100,55 @@ textarea[name="notes"] {
 }
 
 .chara {
-      font-family: "Patrick Hand", cursive;
-    font-size: 40px;
-    color: gray;
-    text-align: center;
+    font-family: "Patrick Hand", cursive;
     background-color: #f2d0bf;
     border: 5px solid black;
     border-radius: 20px 20px 20px 20px;
     position: relative;
     height: 383px;
-    align-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.chara-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    text-decoration: none;
+    color: gray;
+    line-height: 0.9;
+}
+
+.chara-inner:visited,
+.chara-inner:hover,
+.chara-inner:active {
+    text-decoration: none;
+    color: gray;
+}
+
+.chara-face {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    min-height: 240px;
+}
+
+.chara-hint {
+    font-size: 60px;
+    text-align: center;
+    margin-top: 8px;
 }
 
 .details {
     position: relative;
     padding-top: 24px;
+    align-items: center;
+    justify-content: center;
 }
 
 .age {

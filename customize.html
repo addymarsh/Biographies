@@ -1,14 +1,59 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customize</title>
     <link href="customize.css" rel="stylesheet">
+    <link href="face-layers.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="top">
+        <a href="new.html" class="back" id="customize-back">back</a>
+        <button type="button" class="save">save</button>
+    </div>
     <div class="head">
         What do they look like?
     </div>
+
+    <div class="chara" aria-label="Face preview">
+        <div class="face-stack">
+            <img id="part-cheeks" class="face-part" data-part="cheeks" alt="" width="256" height="256" hidden>
+            <img id="part-eyes" class="face-part" data-part="eyes" alt="" width="256" height="256" hidden>
+            <img id="part-nose" class="face-part" data-part="nose" alt="" width="256" height="256" hidden>
+            <img id="part-mouth" class="face-part" data-part="mouth" alt="" width="256" height="256" hidden>
+        </div>
+    </div>
+
+    <div class="face-rows">
+        <div class="one">
+            <button type="button" class="lr-one" aria-label="Previous eyes option">&lt;</button>
+            <div class="eyes picker-readout" id="readout-eyes" aria-live="polite">None</div>
+            <button type="button" class="rr-one" aria-label="Next eyes option">&gt;</button>
+        </div>
+        <div class="two">
+            <button type="button" class="lr-two" aria-label="Previous nose option">&lt;</button>
+            <div class="nose picker-readout" id="readout-nose" aria-live="polite">None</div>
+            <button type="button" class="rr-two" aria-label="Next nose option">&gt;</button>
+        </div>
+        <div class="three">
+            <button type="button" class="lr-three" aria-label="Previous mouth option">&lt;</button>
+            <div class="mouth picker-readout" id="readout-mouth" aria-live="polite">None</div>
+            <button type="button" class="rr-three" aria-label="Next mouth option">&gt;</button>
+        </div>
+        <div class="four">
+            <button type="button" class="lr-four" aria-label="Previous cheeks option">&lt;</button>
+            <div class="cheeks picker-readout" id="readout-cheeks" aria-live="polite">None</div>
+            <button type="button" class="rr-four" aria-label="Next cheeks option">&gt;</button>
+        </div>
+    </div>
+
+    <script src="face-assets.js"></script>
+    <script src="buddies-storage.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

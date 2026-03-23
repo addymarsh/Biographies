@@ -2,33 +2,98 @@
 
 body {
     background-color: #f2d0bf;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 .head {
     font-size: 64px;
     justify-content: center;
     align-items: center;
-    width: 394px;
+    width: 100%;
+    max-width: 394px;
     height: 80px;
     text-align: center;
     font-family: "Patrick Hand", cursive;
 }
 
-.add {
-        font-size: 100px;
+.buddy-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 10px;
+    width: 100%;
+    max-width: 394px;
+    margin-top: 12px;
+    justify-content: flex-start;
+}
+
+.buddy-tile,
+.add-wrap {
+    flex: 0 0 calc(50% - 5px);
+    max-width: calc(50% - 5px);
+    box-sizing: border-box;
+}
+
+.buddy-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.buddy-tile:visited,
+.buddy-tile:hover,
+.buddy-tile:active {
+    color: #000;
+    text-decoration: none;
+}
+
+.buddy-thumb {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    background-color: #f2d0bf;
+    border: 5px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.buddy-name {
+    font-family: "Patrick Hand", cursive;
+    font-size: 22px;
+    margin-top: 6px;
+    text-align: center;
+    word-break: break-word;
+    width: 100%;
+}
+
+.add-wrap .add {
+    font-size: 100px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 160px;
+    width: 100%;
     height: 160px;
     text-align: center;
-    text-justify: center;
     font-family: "Patrick Hand", cursive;
-     background-color: #f2d0bf;
+    background-color: #f2d0bf;
     border: 5px solid black;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
     position: relative;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.add-wrap .add a,
+.add-wrap .add a:visited,
+.add-wrap .add a:hover,
+.add-wrap .add a:active {
     text-decoration: none;
-    top: 20px;
-    left: 3px;
+    color: #000;
 }
 
 }
