@@ -1,3 +1,207 @@
+@media screen and (min-width: 395px) {
+
+body {
+    background-color: #f2d0bf;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    font-size: 40px;
+    font-family: "Patrick Hand", cursive;
+    width: 148px;
+    height: 64px;
+    border: 2px solid black;
+    border-radius: 10px 10px 10px 10px;
+    padding-top: 2px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+}
+
+.save {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    background-color: #f2d0bf;
+    font-size: 40px;
+    font-family: "Patrick Hand", cursive;
+    width: 148px;
+    height: 64px;
+    border: 2px solid black;
+    border-radius: 10px 10px 10px 10px;
+    padding-top: 2px;
+    color: black;
+    text-align: center;
+    position: relative;
+    right: 20px;
+}
+
+textarea {
+    font-family: "Patrick Hand", cursive;
+    font-size: 40px;
+    color: black;
+    height: 56px;
+    text-align: center;
+    background-color: #f2d0bf;
+    border: 5px solid black;
+    border-radius: 20px 20px 20px 20px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 49%;
+
+    
+    
+    
+}
+
+textarea[name="description"] {
+    width: 700px;
+}
+
+.line2 textarea {
+    width: 700px;
+}
+
+textarea[name="age"] {
+    width: 355px; 
+}
+
+textarea[name="height"] {
+    width: 355px;
+    top: -74px;
+    left: 374px;
+}
+
+textarea[name="hobbies"] {
+    height: 168px;
+}
+
+textarea[name="goals"] {
+    height: 168px;
+}
+
+textarea[name="fears"] {
+    height: 168px;
+}
+
+textarea[name="notes"] {
+    height: 224px;
+}
+
+
+.line2 {
+    position: relative;
+    width: 745px;
+    left: 760px;
+bottom: 1337px;
+}
+
+
+.chara {
+    font-family: "Patrick Hand", cursive;
+    background-color: #f2d0bf;
+    border: 5px solid black;
+    border-radius: 20px 20px 20px 20px;
+    position: relative;
+    height: 383px;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 745px;
+    height: 745px;
+}
+
+.chara-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    text-decoration: none;
+    color: gray;
+    line-height: 0.9;
+    text-align: center;
+}
+
+.chara-inner:visited,
+.chara-inner:hover,
+.chara-inner:active {
+    text-decoration: none;
+    color: gray;
+}
+
+/* Placeholder only: face area collapses so “What do they look like?” stays vertically centered */
+.chara-face {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 0;
+    container-type: size;
+    container-name: chara-face;
+}
+
+/* After customize: face preview fills the card */
+.chara--has-face .chara-face {
+    flex: 1 1 auto;
+    min-height: 240px;
+}
+
+.chara-hint {
+    font-size: 60px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.details {
+    position: relative;
+    padding-top: 24px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.age {
+    position: relative;
+    top: 4px;
+}
+
+.height {
+    position: relative;
+    top: 4px;
+}
+
+.up {
+    position: relative;
+    bottom: 70px;
+}
+
+@container chara-face (min-height: 1px) {
+    .chara-face .face-stack--thumb {
+        --face-nudge-mult: calc(100cqh / 383px);
+    }
+}
+
+}
+
 @media screen and (max-width: 394px) {
 
 body {

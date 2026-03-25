@@ -1,3 +1,177 @@
+body {
+    background-color: #f2d0bf;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.head {
+    font-size: 64px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    font-family: "Patrick Hand", cursive;
+}
+
+.buddy-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 10px;
+    width: 100%;
+    margin-top: 12px;
+    justify-content: flex-start;
+}
+
+.buddy-tile,
+.add-wrap {
+    flex: 0 0 calc((100% - 90px) / 10);
+    max-width: calc((100% - 90px) / 10);
+    box-sizing: border-box;
+}
+
+.buddy-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.buddy-tile:visited,
+.buddy-tile:hover,
+.buddy-tile:active {
+    color: #000;
+    text-decoration: none;
+}
+
+.buddy-thumb {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    background-color: #f2d0bf;
+    border: 5px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.buddy-name {
+    font-family: "Patrick Hand", cursive;
+    font-size: 22px;
+    margin-top: 6px;
+    text-align: center;
+    word-break: break-word;
+    width: 100%;
+}
+
+.add-wrap .add {
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 160px;
+    text-align: center;
+    font-family: "Patrick Hand", cursive;
+    background-color: #f2d0bf;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.add-wrap .add a,
+.add-wrap .add a:visited,
+.add-wrap .add a:hover,
+.add-wrap .add a:active {
+    text-decoration: none;
+    color: #000;
+}
+
+.splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2d0bf;
+    animation: splash-out 1s forwards;
+    pointer-events: none;
+}
+
+.splash-figure {
+    position: relative;
+    width: 32px;
+    height: 34px;
+}
+
+.splash-bot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 26px;
+    height: 26px;
+    margin-left: -13px;
+    margin-top: -13px;
+    background-color: #f2d0bf;
+    border: 2px solid black;
+    border-radius: 20%;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.splash-arm {
+    z-index: 0;
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    width: 18px;
+    height: 7px;
+    margin-top: -10px;
+    margin-left: 2px;
+    background-color: #f2d0bf;
+    border: 2px solid black;
+    border-radius: 20%;
+    box-sizing: border-box;
+    transform-origin: 0 50%;
+    animation: splash-wave 0.22s ease-in-out 4 alternate;
+}
+
+@keyframes splash-wave {
+    from {
+        transform: rotate(-8deg);
+    }
+    to {
+        transform: rotate(52deg);
+    }
+}
+
+@keyframes splash-out {
+    0%,
+    72% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .splash {
+        animation: splash-out 0.35s forwards;
+    }
+    .splash-arm {
+        animation: none;
+        transform: rotate(28deg);
+    }
+}
+
 @media screen and (max-width: 394px) {
 
 body {

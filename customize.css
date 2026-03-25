@@ -1,3 +1,211 @@
+@media screen and (min-width: 395px) {
+
+body {
+    background-color: #f2d0bf;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-family: "Patrick Hand", cursive;
+}
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.head {
+    font-size: 60px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Patrick Hand", cursive;
+    position: relative;
+    top: 10px;
+    left: 155px;
+
+}
+
+.back {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+box-sizing: border-box;
+font-size: 40px;
+font-family: "Patrick Hand", cursive;
+width: 148px;
+height: 64px;
+border: 2px solid black;
+border-radius: 10px 10px 10px 10px;
+padding-top: 2px;
+color: black;
+text-decoration: none;
+text-align: center;
+}    
+
+.save {
+flex-shrink: 0;
+box-sizing: border-box;
+background-color: #f2d0bf;
+font-size: 40px;
+font-family: "Patrick Hand", cursive;
+width: 148px;
+height: 64px;
+border: 2px solid black;
+border-radius: 10px 10px 10px 10px;
+padding-top: 2px;
+color: black;
+text-align: center;
+}
+
+/* Face layer geometry: face-layers.css (linked in customize.html) */
+.chara {
+    font-family: "Patrick Hand", cursive;
+    background-color: #f2d0bf;
+    border: 5px solid black;
+    border-radius: 20px 20px 20px 20px;
+    position: relative;
+    height: 500px;
+    width: 500px;
+    overflow: hidden;
+    top: 18px;
+}
+
+.face-rows {
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin-top: 12px;
+position: relative;
+left: 1300px;
+bottom: 400px;
+scale: 2;
+
+}
+
+.picker-readout {
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+font-size: 22px;
+line-height: 1.1;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+padding: 0 4px;
+}
+
+/* Shared track height: border-box so border is inside height; buttons need padding:0 (UA defaults add height). */
+button:not(.save),
+.eyes,
+.nose,
+.mouth,
+.cheeks {
+box-sizing: border-box;
+}
+
+button:not(.save) {
+-webkit-appearance: none;
+appearance: none;
+font-family: "Patrick Hand", cursive;
+background-color: #f2d0bf;
+border: 3px solid black;
+border-radius: 20px 20px 20px 20px;
+margin: 0;
+padding: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+line-height: 1;
+width: 56px;
+height: 56px;
+max-height: 56px;
+min-height: 0;
+font-size: 40px;
+flex-shrink: 0;
+overflow: hidden;
+}
+
+.eyes {
+font-family: "Patrick Hand", cursive;
+background-color: #f2d0bf;
+border: 3px solid black;
+border-radius: 20px 20px 20px 20px;
+position: relative;
+height: 56px;
+width: 200px;
+left: 10px;
+flex-shrink: 0;
+}
+
+.nose {
+font-family: "Patrick Hand", cursive;
+background-color: #f2d0bf;
+border: 3px solid black;
+border-radius: 20px 20px 20px 20px;
+position: relative;
+height: 56px;
+width: 200px;
+left: 10px;
+flex-shrink: 0;
+}
+
+.mouth {
+font-family: "Patrick Hand", cursive;
+background-color: #f2d0bf;
+border: 3px solid black;
+border-radius: 20px 20px 20px 20px;
+position: relative;
+height: 56px;
+width: 200px;
+left: 10px;
+flex-shrink: 0;
+}
+
+.cheeks {
+font-family: "Patrick Hand", cursive;
+background-color: #f2d0bf;
+border: 3px solid black;
+border-radius: 20px 20px 20px 20px;
+position: relative;
+height: 56px;
+width: 200px;
+left: 10px;
+flex-shrink: 0;
+}
+
+.one,
+.two,
+.three,
+.four {
+position: relative;
+display: flex;
+top: 16px;
+left: 6px;
+}
+
+.rr-one,
+.rr-two,
+.rr-three,
+.rr-four {
+position: relative;
+left: 20px;
+}
+
+.lr-one,
+.lr-two,
+.lr-three,
+.lr-four {
+position: relative;
+}
+
+}
+
 @media screen and (max-width: 394px) {
 
     body {

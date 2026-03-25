@@ -11,6 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Rubik+Bubbles&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="splash" id="splash" aria-hidden="true">
+        <div class="splash-figure" aria-hidden="true">
+            <div class="splash-bot"></div>
+            <div class="splash-arm"></div>
+        </div>
+    </div>
     <div class="head">
         BUDDIES!
     </div>
@@ -19,5 +25,16 @@
     <script src="face-assets.js"></script>
     <script src="buddies-storage.js"></script>
     <script src="index-buddies.js"></script>
+    <script>
+    (function () {
+        var splash = document.getElementById("splash");
+        if (!splash) return;
+        function dismiss() {
+            if (splash.parentNode) splash.parentNode.removeChild(splash);
+        }
+        splash.addEventListener("animationend", dismiss, { once: true });
+        setTimeout(dismiss, 1200);
+    })();
+    </script>
 </body>
 </html>
