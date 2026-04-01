@@ -1,7 +1,8 @@
 /*
- * Single source for face part positions. Pixel nudges match the customize canvas height (383px).
- * Index tiles use a smaller box — --face-nudge-mult scales nudges so the composition matches.
- * If you change .buddy-thumb height in style.css, update --face-nudge-mult (160/383) on .buddy-thumb .face-stack--thumb.
+ * Face part nudges (--face-x / --face-y) are tuned at a 383px preview. Scale offsets with the
+ * actual preview box so cheeks/eyes/mouth stay proportional on large chara areas (new + customize).
+ * Requires an ancestor .chara or .chara-face with container-type: size (see new.css / customize.css).
+ * Index tiles use a fixed small box — buddy-thumb sets --face-nudge-mult to 160/383.
  */
 
 .buddy-thumb .face-stack--thumb {
@@ -12,6 +13,12 @@
     --face-nudge-mult: 1;
 }
 
+@supports (width: 1cqmin) {
+    .chara .face-stack {
+        --face-nudge-mult: calc(100cqmin / 383px);
+    }
+}
+
 .face-stack {
     position: absolute;
     left: 0;
@@ -19,6 +26,13 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+}
+
+/* new.html preview: keep stack strictly square so parts aren’t horizontally squeezed */
+.chara .chara-face .face-stack--thumb {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .chara .face-stack .face-part,
@@ -32,6 +46,7 @@
     width: auto;
     height: auto;
     object-fit: contain;
+    object-position: center center;
     pointer-events: none;
 }
 
@@ -44,7 +59,7 @@
             calc(-50% + calc(var(--face-x, 0px) * var(--face-nudge-mult, 1))),
             calc(-50% + calc(var(--face-y, 0px) * var(--face-nudge-mult, 1)))
         )
-        scale(var(--face-scale-x, var(--face-scale, 1)), var(--face-scale-y, var(--face-scale, 1)));
+        scale(var(--face-scale, 1));
     transform-origin: center center;
 }
 
@@ -80,7 +95,7 @@
     --face-scale: 0.7;
 }
 
-@media screen and (max-width: 394px) {
+@media screen and (max-width: 719px) {
 
     /* 160 (buddy-thumb height) / 383 (.chara canvas height) */
     .buddy-thumb .face-stack--thumb {
@@ -89,6 +104,12 @@
 
     .chara .face-stack {
         --face-nudge-mult: 1;
+    }
+
+    @supports (width: 1cqmin) {
+        .chara .face-stack {
+            --face-nudge-mult: calc(100cqmin / 383px);
+        }
     }
 
     .face-stack {
@@ -123,7 +144,7 @@
                 calc(-50% + calc(var(--face-x, 0px) * var(--face-nudge-mult, 1))),
                 calc(-50% + calc(var(--face-y, 0px) * var(--face-nudge-mult, 1)))
             )
-            scale(var(--face-scale-x, var(--face-scale, 1)), var(--face-scale-y, var(--face-scale, 1)));
+            scale(var(--face-scale, 1));
         transform-origin: center center;
     }
 

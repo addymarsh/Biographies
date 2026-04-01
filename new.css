@@ -1,11 +1,9 @@
-@media screen and (min-width: 395px) {
+@media screen and (min-width: 720px) {
 
 body {
     background-color: #f2d0bf;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 .head {
@@ -24,11 +22,11 @@ body {
     flex-shrink: 0;
     box-sizing: border-box;
     font-size: 40px;
-    font-family: "Patrick Hand", cursive;
+    font-family: "TAYKula", sans-serif;
     width: 148px;
     height: 64px;
     border: 2px solid black;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
     padding-top: 2px;
     color: black;
     text-decoration: none;
@@ -40,101 +38,136 @@ body {
     box-sizing: border-box;
     background-color: #f2d0bf;
     font-size: 40px;
-    font-family: "Patrick Hand", cursive;
+    font-family: "TAYKula", sans-serif;
     width: 148px;
     height: 64px;
     border: 2px solid black;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
     padding-top: 2px;
     color: black;
     text-align: center;
-    position: relative;
-    right: 20px;
 }
 
 textarea {
-    font-family: "Patrick Hand", cursive;
+    font-family: "TAYKula", sans-serif;
     font-size: 40px;
+    line-height: 1.15;
     color: black;
-    height: 56px;
+    height: 90px;
+    padding: 10px 12px;
     text-align: center;
     background-color: #f2d0bf;
     border: 5px solid black;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
     position: relative;
-    align-items: center;
-    justify-content: center;
-    width: 49%;
-
-    
-    
-    
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    resize: none;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-textarea[name="description"] {
-    width: 700px;
+textarea[name="description"],
+textarea[name="show"],
+textarea[name="music"] {
+    height: 130px;
 }
 
-.line2 textarea {
-    width: 700px;
+textarea[name="hobbies"] { height: 188px; }
+textarea[name="goals"]   { height: 188px; }
+textarea[name="fears"]   { height: 188px; }
+textarea[name="notes"]   { height: 244px; }
+
+.details {
+    padding-top: 16px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-textarea[name="age"] {
-    width: 355px; 
+/* One row, two columns: right stack is name → age → movie → … (no dead space under age) */
+.details-main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-textarea[name="height"] {
-    width: 355px;
-    top: -74px;
-    left: 374px;
+.details-col--left {
+    order: 1;
+    flex: 1 1 50%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
 }
 
-textarea[name="hobbies"] {
-    height: 168px;
+.details-col--right {
+    order: 2;
+    flex: 1 1 50%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
 }
 
-textarea[name="goals"] {
-    height: 168px;
-}
-
-textarea[name="fears"] {
-    height: 168px;
-}
-
-textarea[name="notes"] {
-    height: 224px;
-}
-
-
-.line2 {
-    position: relative;
-    width: 745px;
-    left: 760px;
-bottom: 1337px;
-}
-
-
-.chara {
-    font-family: "Patrick Hand", cursive;
+/*
+ * Square preview: padding-bottom + height:0 is wrong with border-box (padding folds into height:0).
+ * Fix sizing from width with aspect-ratio; flex: 0 0 auto keeps height from ratio, not from stretch bugs.
+ */
+.details-col--left .chara {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    min-height: 0;
+    flex: 0 0 auto;
+    align-self: stretch;
+    box-sizing: border-box;
+    font-family: "TAYKula", sans-serif;
     background-color: #f2d0bf;
     border: 5px solid black;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
     position: relative;
-    height: 383px;
     overflow: hidden;
+}
+
+.details-col--left .chara > .chara-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+}
+
+.age-height {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: stretch;
+    width: 100%;
     box-sizing: border-box;
-    width: 745px;
-    height: 745px;
+}
+
+.age-height .age,
+.age-height .height {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .chara-inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     box-sizing: border-box;
-    height: 100%;
-    width: 100%;
+    min-height: 0;
     padding: 8px;
     text-decoration: none;
     color: gray;
@@ -149,7 +182,244 @@ bottom: 1337px;
     color: gray;
 }
 
-/* Placeholder only: face area collapses so “What do they look like?” stays vertically centered */
+.chara-face {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 0;
+    flex-shrink: 0;
+    container-type: size;
+    container-name: chara-face;
+}
+
+/* Inner square matches content width; inner area is already square so this fills it */
+.chara--has-face .chara-inner {
+    justify-content: center;
+    align-items: center;
+}
+
+.chara--has-face .chara-face {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    container-type: size;
+    container-name: chara-face;
+}
+
+.chara--has-face .chara-face > .face-stack {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+}
+
+.chara-face .face-stack--thumb {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.chara-hint {
+    font-size: 60px;
+    text-align: center;
+    margin-top: 0;
+    flex-shrink: 0;
+}
+
+}
+
+@media screen and (max-width: 719px) {
+
+body {
+    background-color: #f2d0bf;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: "TAYKula", sans-serif;
+    width: 72px;
+    height: 32px;
+    border: 2px solid black;
+    border-radius: 10px 10px 10px 10px;
+    padding-top: 2px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+}
+
+.save {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    background-color: #f2d0bf;
+    font-size: 20px;
+    font-family: "TAYKula", sans-serif;
+    width: 72px;
+    height: 32px;
+    border: 2px solid black;
+    border-radius: 10px 10px 10px 10px;
+    padding-top: 2px;
+    color: black;
+    text-align: center;
+}
+
+textarea {
+    font-family: "TAYKula", sans-serif;
+    font-size: 40px;
+    line-height: 1.15;
+    color: black;
+    height: 90px;
+    padding: 10px 12px;
+    text-align: center;
+    background-color: #f2d0bf;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    resize: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+textarea[name="description"],
+textarea[name="show"],
+textarea[name="music"] {
+    height: 130px;
+}
+
+textarea[name="age"],
+textarea[name="height"] {
+    width: 100%;
+}
+
+textarea[name="hobbies"] {
+    height: 188px;
+}
+
+textarea[name="goals"] {
+    height: 188px;
+}
+
+textarea[name="fears"] {
+    height: 188px;
+}
+
+textarea[name="notes"] {
+    height: 244px;
+}
+
+.details {
+    padding-top: 24px;
+    width: 100%;
+    max-width: 680px;
+    margin-inline: auto;
+    box-sizing: border-box;
+}
+
+.details-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.details-col--left,
+.details-col--right {
+    display: contents;
+}
+
+.name           { order: 1; }
+.chara          { order: 2; }
+.age-height     { order: 3; }
+.home           { order: 4; }
+.birth          { order: 5; }
+.met            { order: 6; }
+.phone          { order: 7; }
+.address        { order: 8; }
+.job            { order: 9; }
+.desc           { order: 10; }
+.col            { order: 11; }
+.food           { order: 12; }
+.movie          { order: 13; }
+.show           { order: 14; }
+.music          { order: 15; }
+.goals          { order: 16; }
+.fears          { order: 17; }
+.notes          { order: 18; }
+.hobbies        { order: 19; }
+.book           { order: 20; }
+
+.chara {
+    font-family: "TAYKula", sans-serif;
+    background-color: #f2d0bf;
+    border: 5px solid black;
+    border-radius: 20px;
+    position: relative;
+    width: 100%;
+    max-width: min(100vw - 32px, 520px);
+    min-width: min(100%, 260px);
+    margin-inline: auto;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    min-height: min(260px, 85vw);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.age-height {
+    display: grid;
+    grid-template-columns: minmax(130px, 1fr) minmax(130px, 1fr);
+    gap: 10px 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.chara-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    min-height: 0;
+    padding: 8px;
+    text-decoration: none;
+    color: gray;
+    line-height: 0.9;
+    text-align: center;
+}
+
+.chara-inner:visited,
+.chara-inner:hover,
+.chara-inner:active {
+    text-decoration: none;
+    color: gray;
+}
+
 .chara-face {
     position: relative;
     flex: 0 0 auto;
@@ -159,7 +429,6 @@ bottom: 1337px;
     container-name: chara-face;
 }
 
-/* After customize: face preview fills the card */
 .chara--has-face .chara-face {
     flex: 1 1 auto;
     min-height: 240px;
@@ -169,214 +438,6 @@ bottom: 1337px;
     font-size: 60px;
     text-align: center;
     margin-top: 0;
-}
-
-.details {
-    position: relative;
-    padding-top: 24px;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.age {
-    position: relative;
-    top: 4px;
-}
-
-.height {
-    position: relative;
-    top: 4px;
-}
-
-.up {
-    position: relative;
-    bottom: 70px;
-}
-
-@container chara-face (min-height: 1px) {
-    .chara-face .face-stack--thumb {
-        --face-nudge-mult: calc(100cqh / 383px);
-    }
-}
-
-}
-
-@media screen and (max-width: 394px) {
-
-body {
-    background-color: #f2d0bf;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
-.head {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.back {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    box-sizing: border-box;
-    font-size: 20px;
-    font-family: "Patrick Hand", cursive;
-    width: 72px;
-    height: 32px;
-    border: 2px solid black;
-    border-radius: 10px 10px 10px 10px;
-    padding-top: 2px;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-}
-
-.save {
-    flex-shrink: 0;
-    box-sizing: border-box;
-    background-color: #f2d0bf;
-    font-size: 20px;
-    font-family: "Patrick Hand", cursive;
-    width: 72px;
-    height: 32px;
-    border: 2px solid black;
-    border-radius: 10px 10px 10px 10px;
-    padding-top: 2px;
-    color: black;
-    text-align: center;
-}
-
-textarea {
-    font-family: "Patrick Hand", cursive;
-    font-size: 40px;
-    color: black;
-    height: 56px;
-    text-align: center;
-    background-color: #f2d0bf;
-    border: 5px solid black;
-    border-radius: 20px 20px 20px 20px;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    width: 96%;
-
-    
-    
-    
-}
-
-textarea[name="description"] {
-    height: 112px; 
-}
-
-textarea[name="age"] {
-    width: 155px;
-}
-
-textarea[name="height"] {
-    width: 155px;
-    top: -74px;
-    left: 175px;
-}
-
-textarea[name="hobbies"] {
-    height: 168px;
-}
-
-textarea[name="goals"] {
-    height: 168px;
-}
-
-textarea[name="fears"] {
-    height: 168px;
-}
-
-textarea[name="notes"] {
-    height: 224px;
-}
-
-.chara {
-    font-family: "Patrick Hand", cursive;
-    background-color: #f2d0bf;
-    border: 5px solid black;
-    border-radius: 20px 20px 20px 20px;
-    position: relative;
-    height: 383px;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.chara-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    padding: 8px;
-    text-decoration: none;
-    color: gray;
-    line-height: 0.9;
-    text-align: center;
-}
-
-.chara-inner:visited,
-.chara-inner:hover,
-.chara-inner:active {
-    text-decoration: none;
-    color: gray;
-}
-
-/* Placeholder only: face area collapses so “What do they look like?” stays vertically centered */
-.chara-face {
-    position: relative;
-    flex: 0 0 auto;
-    width: 100%;
-    min-height: 0;
-}
-
-/* After customize: face preview fills the card */
-.chara--has-face .chara-face {
-    flex: 1 1 auto;
-    min-height: 240px;
-}
-
-.chara-hint {
-    font-size: 60px;
-    text-align: center;
-    margin-top: 0;
-}
-
-.details {
-    position: relative;
-    padding-top: 24px;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.age {
-    position: relative;
-    top: 4px;
-}
-
-.height {
-    position: relative;
-    top: 4px;
-}
-
-.up {
-    position: relative;
-    bottom: 70px;
 }
 
 }
